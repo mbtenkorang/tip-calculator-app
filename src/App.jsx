@@ -1,62 +1,47 @@
-import { useState } from 'react';
-import './App.css';
+import { Fragment, useState } from 'react';
+import Header from './components/Header';
 import Bill from './components/Bill';
-import TipButtons from './components/TipButton';
 import { NumberOfPeople } from './components/NumberOfPeople';
+import { TipButtons } from './components/TipButton';
+import './index.css';
+import Total from './components/Total';
 
 function App() {
-  const [bill, setBill] = useState(0);
-  const [tip, setTip] = useState(0);
-  const [numOfPeople, setNumOfPeople] = useState(0);
-  const [tipAmount, setTipAmount] = useState(0);
+  const [values, setValues] = useState({
+    bill: '',
+    tip: '',
+    numberOfPersons: '',
+  });
 
-  function input_bill(e) {
-    setBill((bill) => (bill = e.target.value));
-  }
+  const tip_list = [5, 10, 15, 25, 50];
 
-  let tip_list = [5, 10, 15, 25];
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, [name]: event.target.value });
+  };
 
-  function set_tip_value(e) {
-    setTip((tip) => (tip = e.target.value));
-  }
+  // console.log(values);
 
-  function input_no_of_people(e) {
-    setNumOfPeople((numOfPeople) => (numOfPeople = e.target.value));
-  }
-
-  function calculateTip() {
-    let tip_per_person;
-    if ((bill != 0 || undefined) && (numOfPeople != 0 || undefined)) {
-      tip_per_person = (bill * (tip / 100)) / numOfPeople;
-      setTipAmount((tipAmount) => (tipAmount = tip_per_person));
-    } else {
-      setTipAmount(0);
-    }
-    console.log(tip_per_person);
-  }
-
-  // calculateTip();
-
-  // console.log(props);
   return (
-    <>
-      <h1>Splitter</h1>
-      <Bill
-        bill={bill}
-        input_bill={input_bill}
-      />
-      <TipButtons
-        tip={tip}
-        tip_list={tip_list}
-        set_tip_value={set_tip_value}
-      />
-      <NumberOfPeople
-        numberOfPeople={numOfPeople}
-        input_no_of_people={input_no_of_people}
-      />
+    <Fragment>
+      <Header />
+      <div className="border rounded-t-[20px] bg-white p-8">
+        <Bill
+          bill={values.bill}
+          input_bill={handleChange('bill')}
+        />
 
-      <h3 onClick={calculateTip}>{tipAmount}</h3>
-    </>
+        <TipButtons
+          tip={values.tip}
+          tip_list={tip_list}
+          set_tip_value={handleChange('tip')}
+        />
+        <NumberOfPeople
+          numberOfPeople={values.numberOfPersons}
+          input_no_of_people={handleChange('numberOfPersons')}
+        />
+        <Total />
+      </div>
+    </Fragment>
   );
 }
 
