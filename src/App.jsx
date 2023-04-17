@@ -25,21 +25,25 @@ function App() {
     <Fragment>
       <Header />
       <div className="border rounded-t-[20px] bg-white p-8">
-        <Bill
-          bill={values.bill}
-          input_bill={handleChange('bill')}
-        />
+        <div>
+          <Bill
+            bill={values.bill}
+            input_bill={handleChange('bill')}
+          />
 
-        <TipButtons
-          tip={values.tip}
-          tip_list={tip_list}
-          set_tip_value={handleChange('tip')}
-        />
-        <NumberOfPeople
-          numberOfPeople={values.numberOfPersons}
-          input_no_of_people={handleChange('numberOfPersons')}
-        />
-        <Total />
+          <TipButtons
+            tip={values.tip}
+            tip_list={tip_list}
+            set_tip_value={handleChange('tip')}
+          />
+          <NumberOfPeople
+            numberOfPeople={values.numberOfPersons}
+            input_no_of_people={handleChange('numberOfPersons')}
+          />
+        </div>
+        <div>
+          <Total />
+        </div>
       </div>
     </Fragment>
   );
