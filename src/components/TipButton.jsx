@@ -29,7 +29,7 @@ export function TipButtons(props) {
       <h3 className="col-span-2">Select Tip %</h3>
       {tip_buttons}
       <input
-        className="border border-secondary-lightgraycyan rounded-sm px-4 py-2 text-2xl mt-1 text-right"
+        className="border border-secondary-lightgraycyan rounded-sm px-4 py-2 text-xl mt-1 text-right uppercase"
         type={'text'}
         placeholder="Custom"
         onChange={set_tip_value}

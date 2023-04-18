@@ -13,7 +13,7 @@ function NumberOfPeople({ numberOfPeople, input_no_of_people }) {
           />
         </span>
         <input
-          type={'number'}
+          type={'float'}
           value={numberOfPeople}
           onChange={input_no_of_people}
           placeholder={0}

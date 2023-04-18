@@ -2,7 +2,7 @@ import dollarLogo from '../assets/images/icon-dollar.svg';
 
 export default function Bill({ bill, input_bill }) {
   return (
-    <section className="flex flex-col items-start justify-between pb-4">
+    <section className="pb-4">
       <label
         htmlFor="bill"
         className="label"
@@ -11,7 +11,11 @@ export default function Bill({ bill, input_bill }) {
       </label>
       <div>
         <span className="absolute z-[3] grid place-content-center pl-4 pt-4">
-          <img src={dollarLogo} />
+          <img
+            src={dollarLogo}
+            alt=""
+            aria-hidden={true}
+          />
         </span>
         <input
           type="float"

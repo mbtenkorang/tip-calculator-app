@@ -24,7 +24,7 @@ function App() {
   return (
     <Fragment>
       <Header />
-      <div className="border rounded-t-[20px] bg-white p-8">
+      <div className="border rounded-t-2xl bg-white p-8 lg:grid gap-4 grid-cols-2 rounded-2xl max-w-4xl">
         <div>
           <Bill
             bill={values.bill}
@@ -41,9 +41,8 @@ function App() {
             input_no_of_people={handleChange('numberOfPersons')}
           />
         </div>
-        <div>
-          <Total />
-        </div>
+
+        <Total />
       </div>
     </Fragment>
   );

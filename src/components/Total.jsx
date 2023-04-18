@@ -15,7 +15,7 @@ function Total() {
   // };
 
   return (
-    <section className="flex flex-col bg-secondary-verydarkcyan p-6 text-primary rounded-[10px]">
+    <section className="flex flex-col bg-secondary-verydarkcyan p-6 text-primary rounded-[10px] lg:justify-between">
       <div className="flex justify-between items-center mb-2">
         <p className="text-white flex flex-col">
           <span>Tip Amount</span>
