@@ -3,7 +3,7 @@ export function Button({ value, handleClick }) {
     <button
       value={value}
       onClick={handleClick}
-      className="text-white text-2xl font-bold py-2 px-4 bg-secondary-verydarkcyan rounded"
+      className="text-white text-2xl font-bold py-2 bg-secondary-verydarkcyan rounded"
     >
       {value + '%'}
     </button>
@@ -25,13 +25,13 @@ export function TipButtons(props) {
   });
 
   return (
-    <section className="grid gap-3 grid-cols-2 pb-4 mb-4">
-      <h3 className="col-span-2">Select Tip %</h3>
+    <section className="grid gap-3 grid-cols-2 pb-4 mb-4 lg:mb-2 lg:pb-2">
+      <h3 className="col-span-2 text-xs">Select Tip %</h3>
       {tip_buttons}
       <input
-        className="border border-secondary-lightgraycyan rounded-sm px-4 py-2 text-xl mt-1 text-right uppercase"
+        className="border border-secondary-lightgraycyan px-4 py-2 rounded-sm text-xl mt-1 text-center uppercase"
         type={'text'}
-        placeholder="Custom"
+        placeholder={'Custom'}
         onChange={set_tip_value}
         defaultValue={tip}
       />
