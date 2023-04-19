@@ -1,17 +1,18 @@
 export function Button({ value, handleClick }) {
   return (
-    <button
-      value={value}
+    <input
+      min={0}
+      required
+      type="button"
+      value={value + '%'}
       onClick={handleClick}
-      className="text-white text-2xl font-bold py-2 bg-secondary-verydarkcyan rounded"
-    >
-      {value + '%'}
-    </button>
+      className="text-white text-3xl font-bold py-2 bg-secondary-verydarkcyan rounded"
+    ></input>
   );
 }
 
 export function TipButtons(props) {
-  const { tip, tip_list, set_tip_value } = props;
+  const { tip_list, set_tip_value } = props;
 
   const tip_buttons = tip_list.map((el, index) => {
     let key = '01' + index;
@@ -25,15 +26,15 @@ export function TipButtons(props) {
   });
 
   return (
-    <section className="grid gap-3 grid-cols-2 pb-4 mb-4 lg:mb-2 lg:pb-2">
+    <section className="grid gap-3 grid-cols-2 pb-4 mb-2 lg:mb-2 lg:pb-2">
       <h3 className="col-span-2 text-xs">Select Tip %</h3>
       {tip_buttons}
       <input
-        className="border border-secondary-lightgraycyan px-4 py-2 rounded-sm text-xl mt-1 text-center uppercase"
-        type={'text'}
+        min={0}
+        className="border border-secondary-lightgraycyan px-4 py-2 rounded-sm text-2xl mt-1 text-center uppercase"
+        type="number"
         placeholder={'Custom'}
         onChange={set_tip_value}
-        defaultValue={tip}
       />
     </section>
   );

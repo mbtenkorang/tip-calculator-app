@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header className="py-4">
-      <h1 className="text-xl text-secondary-verydarkcyan flex flex-col uppercase text-center text-neutral-verydarkcyan tracking-[7px]">
+      <h1 className="text-3xl text-secondary-verydarkcyan flex flex-col uppercase text-center text-neutral-verydarkcyan tracking-[7px]">
         <span>Spli</span>
         <span>tter</span>
       </h1>

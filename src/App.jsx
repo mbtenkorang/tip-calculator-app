@@ -3,14 +3,14 @@ import Header from './components/Header';
 import Bill from './components/Bill';
 import { NumberOfPeople } from './components/NumberOfPeople';
 import { TipButtons } from './components/TipButton';
-import './index.css';
 import Total from './components/Total';
+import './index.css';
 
 function App() {
   const [values, setValues] = useState({
-    bill: '',
-    tip: '',
-    numberOfPersons: '',
+    bill: 0,
+    tip: '0',
+    numOfPeople: 0,
   });
 
   const tip_list = [5, 10, 15, 25, 50];
@@ -19,12 +19,35 @@ function App() {
     setValues({ ...values, [name]: event.target.value });
   };
 
-  console.log(values);
+  const totals = () => {
+    let tipPerPerson;
+    let totalBillPerPerson;
+    let [bill, tip, noP] = Object.values(values);
+
+    // formatting tip value
+    if (tip.endsWith('%')) {
+      const re = /\%/;
+      tip = Number(tip.replace(re, ''));
+    } else {
+      tip = Number(tip);
+    }
+
+    if (noP > 0) {
+      tipPerPerson = (bill * (tip / 100)) / noP;
+      totalBillPerPerson = bill / noP + tipPerPerson;
+    } else {
+      tipPerPerson = '0.00';
+      totalBillPerPerson = '0.00';
+    }
+
+    return { tipPerPerson, totalBillPerPerson };
+  };
+  let result = totals();
 
   return (
     <Fragment>
       <Header />
-      <div className="border rounded-t-2xl bg-white p-8 lg:grid lg:gap-4 lg:grid-cols-2 lg:rounded-2xl lg:max-w-4xl">
+      <div className="rounded-t-2xl bg-white p-8 lg:grid lg:gap-x-2 lg:grid-cols-2 lg:rounded-2xl lg:max-w-4xl">
         <div>
           {/* Bill amount component */}
           <Bill
@@ -39,12 +62,15 @@ function App() {
           />
           {/* Number of people component */}
           <NumberOfPeople
-            numberOfPeople={values.numberOfPersons}
-            input_no_of_people={handleChange('numberOfPersons')}
+            numberOfPeople={values.numOfPeople}
+            input_no_of_people={handleChange('numOfPeople')}
           />
         </div>
         {/* Total component */}
-        <Total />
+        <Total
+          tipPerPerson={result.tipPerPerson}
+          totalPerPerson={result.totalBillPerPerson}
+        />
       </div>
     </Fragment>
   );

@@ -2,7 +2,7 @@ import personIcon from '../assets/images/icon-person.svg';
 
 function NumberOfPeople({ numberOfPeople, input_no_of_people }) {
   return (
-    <section className="mb-4">
+    <section className="mb-4 pb-2">
       <label
         htmlFor="number_of_people"
         className="text-xs"
@@ -18,7 +18,10 @@ function NumberOfPeople({ numberOfPeople, input_no_of_people }) {
           />
         </span>
         <input
-          type={'float'}
+          name="persons"
+          min={0}
+          required={true}
+          type={'number'}
           value={numberOfPeople}
           onChange={input_no_of_people}
           placeholder={0}

@@ -2,9 +2,8 @@ import { useState } from 'react';
 import dollarLogo from '../assets/images/icon-dollar.svg';
 
 export default function Bill({ bill, input_bill }) {
-  const [isActive, setIsactive] = useState(false);
   return (
-    <section className="pb-4">
+    <section className="pb-2 mb-4">
       <label
         htmlFor="bill"
         className="text-xs"
@@ -20,11 +19,13 @@ export default function Bill({ bill, input_bill }) {
           />
         </span>
         <input
-          type="float"
+          name="bill"
+          min={0}
+          type="number"
+          pattern={/\d+\.?\d{0,2}/}
           value={bill}
+          required
           onChange={input_bill}
-          contentEditable={isActive}
-          onClick={() => setIsactive((isActive) => !isActive)}
           placeholder={0}
           className="relative text-2xl flex items-end bg-secondary-verylightgraycyan rounded-sm text-secondary-verydarkcyan font-bold text-right px-4 py-2 w-full"
         />
