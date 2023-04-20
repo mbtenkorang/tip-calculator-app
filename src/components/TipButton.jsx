@@ -26,7 +26,7 @@ export function TipButtons(props) {
   });
 
   return (
-    <section className="grid gap-3 grid-cols-2 pb-4 mb-2 lg:mb-2 lg:pb-2">
+    <section className="grid gap-3 grid-cols-2 pb-2 mb-4 lg:mb-2 lg:pb-2">
       <h3 className="col-span-2 text-xs">Select Tip %</h3>
       {tip_buttons}
       <input

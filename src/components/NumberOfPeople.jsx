@@ -20,7 +20,7 @@ function NumberOfPeople({ numberOfPeople, input_no_of_people }) {
         <input
           name="persons"
           min={0}
-          required={true}
+          required
           type={'number'}
           value={numberOfPeople}
           onChange={input_no_of_people}

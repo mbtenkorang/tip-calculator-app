@@ -19,6 +19,12 @@ function App() {
     setValues({ ...values, [name]: event.target.value });
   };
 
+  const handleReset = () => {
+    setValues(
+      (values) => (values = { ...values, bill: 0, tip: '0', numOfPeople: 0 })
+    );
+  };
+
   const totals = () => {
     let tipPerPerson;
     let totalBillPerPerson;
@@ -42,12 +48,13 @@ function App() {
 
     return { tipPerPerson, totalBillPerPerson };
   };
+
   let result = totals();
 
   return (
     <Fragment>
       <Header />
-      <div className="rounded-t-2xl bg-white p-8 lg:grid lg:gap-x-2 lg:grid-cols-2 lg:rounded-2xl lg:max-w-4xl">
+      <div className="rounded-t-2xl bg-white p-8 md:max-w-xl lg:grid lg:gap-x-2 lg:grid-cols-2 lg:rounded-2xl lg:max-w-4xl">
         <div>
           {/* Bill amount component */}
           <Bill
@@ -68,8 +75,9 @@ function App() {
         </div>
         {/* Total component */}
         <Total
-          tipPerPerson={result.tipPerPerson}
-          totalPerPerson={result.totalBillPerPerson}
+          tipPerPerson={Number(result.tipPerPerson).toFixed(2)}
+          totalPerPerson={Number(result.totalBillPerPerson).toFixed(2)}
+          resetHandler={(event) => handleReset(event)}
         />
       </div>
     </Fragment>
