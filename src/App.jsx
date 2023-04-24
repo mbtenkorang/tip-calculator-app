@@ -52,7 +52,7 @@ function App() {
   let result = totals();
 
   return (
-    <Fragment>
+    <form>
       <Header />
       <div className="rounded-t-2xl bg-white p-8 md:max-w-xl lg:grid lg:gap-x-2 lg:grid-cols-2 lg:rounded-2xl lg:max-w-4xl">
         <div>
@@ -80,7 +80,7 @@ function App() {
           resetHandler={(event) => handleReset(event)}
         />
       </div>
-    </Fragment>
+    </form>
   );
 }
 
