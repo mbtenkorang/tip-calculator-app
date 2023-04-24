@@ -28,7 +28,7 @@ function Total({ tipPerPerson, totalPerPerson, resetHandler }) {
       </div>
       <div className="flex justify-center my-2">
         <input
-          type="button"
+          type="reset"
           value={'reset'}
           onClick={resetHandler}
           className="bg-primary font-bold py-3 rounded text-2xl text-secondary-verydarkcyan uppercase w-full lg:text-3xl lg:py-2"
