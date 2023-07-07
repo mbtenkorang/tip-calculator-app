@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import dollarLogo from '../assets/images/icon-dollar.svg';
 
-export default function Bill({ bill, input_bill }) {
+export function Bill({ bill, input_bill }) {
   return (
     <section className="pb-2 mb-4">
       <label
