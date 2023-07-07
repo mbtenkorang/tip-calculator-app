@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
-import Bill from './components/Bill';
+import { Bill } from './components/Bill';
 import { NumberOfPeople } from './components/NumberOfPeople';
 import { TipButtons } from './components/TipButton';
 import Total from './components/Total';
