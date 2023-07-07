@@ -1,7 +1,25 @@
 {
   "name": "tip-calculator-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "A react app to calculate tips",
+  "keywords": [
+    "reactjs",
+    "tailwindcss",
+    "vite",
+    "frontend mentor",
+    "tip-calculator-app"
+  ],
+  "license": "MIT",
+  "homepage": "https://tip-calculator-9lt4.onrender.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbtenkorang/tip-calculator-app"
+  },
+  "author": {
+    "name": "Moses Boakye-Tenkorang",
+    "email": "mbtenkorang@yahoo.com"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
