@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import Bill from './components/Bill';
 import { NumberOfPeople } from './components/NumberOfPeople';
@@ -13,18 +13,25 @@ function App() {
     numOfPeople: 0,
   });
 
-  const tip_list = [5, 10, 15, 25, 50];
+  const TIP_LIST = [5, 10, 15, 25, 50];
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
+  /**
+   * @returns resets the values for bill, tip and number of people
+   */
   const handleReset = () => {
     setValues(
       (values) => (values = { ...values, bill: 0, tip: '0', numOfPeople: 0 })
     );
   };
 
+  /**
+   *
+   * @returns tip amount per person and total per person
+   */
   const totals = () => {
     let tipPerPerson;
     let totalBillPerPerson;
@@ -52,10 +59,10 @@ function App() {
   let result = totals();
 
   return (
-    <form>
+    <>
       <Header />
       <div className="rounded-t-2xl bg-white p-8 md:max-w-xl lg:grid lg:gap-x-2 lg:grid-cols-2 lg:rounded-2xl lg:max-w-4xl">
-        <div>
+        <form>
           {/* Bill amount component */}
           <Bill
             bill={values.bill}
@@ -64,7 +71,7 @@ function App() {
           {/* Tip percent component */}
           <TipButtons
             tip={values.tip}
-            tip_list={tip_list}
+            tip_list={TIP_LIST}
             set_tip_value={handleChange('tip')}
           />
           {/* Number of people component */}
@@ -72,7 +79,7 @@ function App() {
             numberOfPeople={values.numOfPeople}
             input_no_of_people={handleChange('numOfPeople')}
           />
-        </div>
+        </form>
         {/* Total component */}
         <Total
           tipPerPerson={Number(result.tipPerPerson).toFixed(2)}
@@ -80,7 +87,7 @@ function App() {
           resetHandler={(event) => handleReset(event)}
         />
       </div>
-    </form>
+    </>
   );
 }
 
